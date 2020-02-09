@@ -51,7 +51,6 @@ export default declare(
     {
       jsxPragma = "React",
       allowNamespaces = false,
-      allowDeclareFields = false,
       onlyRemoveTypeImports = false,
     },
   ) => {
@@ -63,12 +62,6 @@ export default declare(
       field(path) {
         const { node } = path;
 
-        if (!allowDeclareFields && node.declare) {
-          throw path.buildCodeFrameError(
-            `The 'declare' modifier is only allowed when the 'allowDeclareFields' option of ` +
-              `@babel/plugin-transform-typescript or @babel/preset-typescript is enabled.`,
-          );
-        }
         if (node.definite || node.declare) {
           if (node.value) {
             throw path.buildCodeFrameError(
@@ -80,13 +73,6 @@ export default declare(
           if (!node.decorators) {
             path.remove();
           }
-        } else if (
-          !allowDeclareFields &&
-          !node.value &&
-          !node.decorators &&
-          !t.isClassPrivateProperty(node)
-        ) {
-          path.remove();
         }
 
         if (node.accessibility) node.accessibility = null;
