@@ -1,2 +1,4 @@
+var _reactJsxRuntimeJs = require("react/jsx-runtime.js");
+
 /*#__PURE__*/
-React.createElement("div", null);
+_reactJsxRuntimeJs.jsx("div", {});

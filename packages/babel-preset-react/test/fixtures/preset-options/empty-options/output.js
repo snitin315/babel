@@ -1,4 +1,6 @@
+var _reactJsxRuntimeJs = require("react/jsx-runtime.js");
+
 /*#__PURE__*/
-React.createElement(Foo, {
+_reactJsxRuntimeJs.jsx(Foo, {
   bar: "baz"
 });
