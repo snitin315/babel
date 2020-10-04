@@ -2127,7 +2127,7 @@ export default class StatementParser extends ExpressionParser {
       if (this.match(tt.string)) {
         assertionKeyNode = this.parseLiteral(this.state.value, "StringLiteral");
       } else {
-        assertionKeyNode = this.parseIdentifier();
+        assertionKeyNode = this.parseIdentifier(true);
       }
       this.next();
       node.key = assertionKeyNode;
